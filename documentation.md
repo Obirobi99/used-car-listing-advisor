@@ -1,197 +1,214 @@
-# AI Applications Project Documentation
+# AI Applications Project Documentation Template
+
+Use this template to document your project concisely and completely.
+Fill in all required fields. Keep answers short and precise.
+
+## Documentation Hint
+
+Important:
+When possible, reference the corresponding code location directly in your description.
+
+### Example: Reference to a notebook section
+Reference to the header `## Data Preprocessing` in the notebook `analysis.ipynb`:
+
+> See *Data Preprocessing* in
+> [`analysis.ipynb`](analysis.ipynb#data-preprocessing)
+
+### Example: Reference to Python code
+
+Reference to a single line in `model.py`, line 42:
+> [`model.py`, line 42](model.py#L42)
+
+Reference to multiple lines in `train.py`, lines 15-38:
+> [`train.py`, lines 15-38](train.py#L15-L38)
 
 ## Project Metadata
 
-* Project title: Used-Car Fair Price and Listing Risk Advisor
-* Student: Robert Obertol
-* GitHub repository URL: https://github.com/Obirobi99/used-car-listing-advisor
-* Deployment URL: robertobertol.com
-* Submission date: Not provided in this local copy
+- Project title: Used-Car Fair Price and Listing Risk Advisor
+- Student: Robert Obertol
+- GitHub repository URL: https://github.com/Obirobi99/used-car-listing-advisor
+- Deployment URL: https://robertobertol.com
+- Submission date: 07 June 2026
 
 ### Mandatory Setup Checks
 
-* At least 2 blocks selected: Yes, ML Numeric Data and NLP
-* Multiple and different data sources used: Yes, Craigslist Kaggle and Cars.com Kaggle raw CSV files are present locally
-* Deployment URL provided: Yes, robertobertol.com
-* Required GitHub users added to repository (`jasminh`, `bkuehnis`): Pending; add both users in the GitHub repository settings before final submission
-
-### Current Artifact Status
-
-This local copy has two different artifact sets:
-
-* Legacy top-level artifact paths: `models/`, `reports/`, and `data/processed/project_listings.csv`
-* Legacy top-level artifact status: demo fallback artifacts
-* Legacy top-level metadata: `models/metadata.json` has `using_demo_data: true` and `processed_rows: 18`
-* Real-data artifact evidence: nested artifacts exist under `models/models/` and `reports/reports/`
-* Real-data metadata: `models/models/metadata.json` has `using_demo_data: false`, `processed_rows: 1124604`, `kaggle_carscom: 759356`, and `kaggle_craigslist: 365248`
-* Current app runtime status: `src/inference.py` prefers the nested real-data model set when its metadata confirms `using_demo_data: false`
-* Screenshot status: `screenshots/` contains placeholder notes only, not real app screenshots
+- [x] At least 2 blocks selected
+- [x] Multiple and different data sources used
+- [x] Deployment URL provided
+- [ ] Required GitHub users added to repository (`jasminh`, `bkuehnis`)
 
 ## Selected AI Blocks
 
-* ML Numeric Data
-* NLP
+- [x] ML Numeric Data
+- [x] NLP
+- [ ] Computer Vision
 
-Computer Vision was not selected for this project. The project intentionally focuses on ML Numeric Data and NLP. No image data, image preprocessing, or vision model is used.
+Primary blocks used for core solution (choose 2):
+- Primary block 1: ML Numeric Data
+- Primary block 2: NLP
 
-Primary blocks used for core solution:
+If a third block is selected, it is documented and graded separately as extra work.
 
-* Primary block 1: ML Numeric Data
-* Primary block 2: NLP
+Guidance hint: Keep the project idea short and consistent. Focus most details on the selected blocks.
+Evidence hint: Show where each selected block contributes to the final system.
 
 ---
 
-## 1. Project Foundation
+## 1. Project Foundation (Short)
 
 ### 1.1 Problem Definition
-
-* Problem statement: Used-car listings contain structured market signals and unstructured seller descriptions, but buyers need one combined risk-aware price recommendation.
-* Goal: Predict a fair listing price and combine it with NLP text-risk analysis to recommend a negotiation range and buyer action.
-* Success criteria: Runnable local pipeline, trained price model, NLP risk analysis, integrated Gradio app, saved metrics, error analysis, and reproducible instructions.
+- Problem statement: Used-car listings contain structured market signals and unstructured seller descriptions, but buyers need one combined risk-aware price recommendation.
+- Goal: Predict a fair listing price from vehicle fields and combine it with NLP text-risk analysis to recommend a negotiation range and buyer action.
+- Success criteria: Runnable local pipeline, trained price model, NLP risk analysis, integrated Gradio app, saved metrics, error analysis, reproducible instructions, and deployment URL.
 
 ### 1.2 Integration Logic
+- How the selected blocks interact: Numeric ML predicts fair price. NLP extracts risk and positive text features. The final system combines the price prediction, seller price difference, NLP risk label, and risk score to generate offer guidance.
+- Data and output flow between blocks: Raw CSVs -> unified schema in [`src/data_loading.py`](src/data_loading.py) -> numeric features in [`src/preprocessing_numeric.py`](src/preprocessing_numeric.py) -> NLP features in [`src/nlp_features.py`](src/nlp_features.py) -> integrated model in [`src/train_integrated.py`](src/train_integrated.py) -> recommendation logic in [`src/inference.py`](src/inference.py).
 
-* How the selected blocks interact: Numeric ML predicts fair price; NLP extracts risk and positive text features; final inference combines price difference and text risk.
-* Data and output flow between blocks: Raw CSVs -> unified schema in `src/data_loading.py` -> numeric features in `src/preprocessing_numeric.py` -> NLP features in `src/nlp_features.py` -> integrated decision logic in `src/inference.py`.
-* Current runtime note: `src/inference.py` now prefers the nested real-data artifacts in `models/models/` and falls back to top-level models only if the real-data set is unavailable.
+Guidance hint: This section should be short. The detailed work belongs in block sections.
+Evidence hint: Include one clear pipeline overview.
 
 ---
 
 ## 2. Block Documentation
 
-### 2A. ML Numeric Data
+Complete only selected blocks. Mark non-selected block sections as N/A.
+
+### 2A. ML Numeric Data (If selected)
 
 #### 2A.1 Data Source(s)
+List every usage of a data source as a separate entry. If the same source is used twice for different roles, add it twice.
 
-Entry | Source name or link | Type | Current evidence | Role in this block
---- | --- | --- | --- | ---
-1 | `austinreese/craigslist-carstrucks-data` | Kaggle CSV | Raw file present at `data/raw/kaggle_craigslist_vehicles.csv`; real-data nested metadata records 365248 processed Craigslist rows | Main structured price dataset and seller-description source
-2 | `andreinovikov/used-cars-dataset` | Kaggle CSV | Raw file present at `data/raw/kaggle_carscom_used_cars.csv`; real-data nested metadata records 759356 processed Cars.com rows | Secondary structured market dataset
+| Entry | Source name or link | Type | Size | Role in this block |
+| --- | --- | --- | --- | --- |
+| 1 | `austinreese/craigslist-carstrucks-data` | Kaggle CSV, structured vehicle listings | 365,248 processed rows in `models/models/metadata.json`; 75,532 rows after numeric cleaning/evaluation in `reports/reports/metrics_numeric.json` | Main structured price dataset; provides price, year, mileage, brand/model, condition, title, drive, location, and other vehicle fields |
+| 2 | `andreinovikov/used-cars-dataset` | Kaggle CSV, structured Cars.com listings | 759,356 processed rows in `models/models/metadata.json`; 164,569 rows after numeric cleaning/evaluation in `reports/reports/metrics_numeric.json` | Secondary structured market dataset; improves coverage across brands, models, and listing conditions |
+| 3 | N/A | N/A | N/A | N/A |
 
 #### 2A.2 Preprocessing and Features
-
-* Cleaning steps: Map raw columns to internal schema, drop invalid critical rows, validate price/year/mileage, normalize categorical text. See `src/data_loading.py` and `src/data_validation.py`.
-* Preprocessing steps: Impute numeric/categorical values, scale numeric features, one-hot encode categorical features. See `src/preprocessing_numeric.py`, function `build_preprocessor()`.
-* Feature engineering and selection: Create car age, mileage per year, log mileage, optional engine size, and categorical vehicle/location fields. See `src/preprocessing_numeric.py`, function `engineer_numeric_features()`.
+- Cleaning steps: [`src/data_loading.py`](src/data_loading.py) maps raw Craigslist and Cars.com columns into one schema, converts Craigslist odometer miles to kilometers, removes invalid price/year/mileage rows, and saves processed metadata. [`src/data_validation.py`](src/data_validation.py) validates required columns, price values, year range, mileage, and text availability.
+- Preprocessing steps: [`src/preprocessing_numeric.py`](src/preprocessing_numeric.py) imputes numeric values, scales numeric features with `StandardScaler`, imputes categorical values, and one-hot encodes categorical features with unknown-category handling.
+- Feature engineering and selection: Numeric features include `year`, `mileage_km`, `car_age`, `mileage_per_year`, `log_mileage`, and `engine_size_l`. Categorical features include brand, model, fuel type, transmission, body type, condition, title status, drive, paint color, location region, and source name.
 
 #### 2A.3 Model Selection
-
-* Models implemented in current code: Ridge Regression, RandomForestRegressor, ExtraTreesRegressor.
-* Why these models were chosen: Ridge provides a simple baseline, while Random Forest and Extra Trees handle nonlinear interactions and can use all available CPU cores.
-* Current-code evidence: `src/train_numeric.py`, function `_candidate_models()`.
+- Models tested: Ridge Regression, RandomForestRegressor, and ExtraTreesRegressor in [`src/train_numeric.py`](src/train_numeric.py).
+- Why these models were chosen: Ridge Regression gives a simple linear baseline. Random Forest and Extra Trees capture nonlinear relationships between price, age, mileage, brand, model, condition, and location while remaining reproducible with `random_state=42`.
 
 #### 2A.4 Model Comparison and Iterations
-
-Real-data nested report evidence from `reports/reports/metrics_numeric.json`:
-
-Iteration | Objective | Key changes | Models used | Main metric | Result
---- | --- | --- | --- | --- | ---
-1 | baseline structured features | mapped numeric/categorical fields plus engineered numeric features | Ridge Regression | RMSE | 7849.56
-2 | nonlinear structured models | same feature set with tree ensembles | RandomForestRegressor | RMSE | 5031.49
-3 | best structured model | same feature set with randomized tree splits | ExtraTreesRegressor | RMSE | 4848.90
-
-Best structured numeric model in nested real-data report: ExtraTreesRegressor with MAE 2969.22, RMSE 4848.90, R2 0.9101.
-
-Top-level runtime report note: `reports/metrics_numeric.json` is a demo/stale runtime artifact with 18 rows and should not be treated as final real-data evidence.
+| Iteration | Objective | Key changes | Models used | Main metric | Change vs previous |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Structured baseline | Unified schema, engineered numeric fields, categorical one-hot encoding | Ridge Regression | RMSE 7,849.56 | Baseline |
+| 2 | Nonlinear model comparison | Same features with ensemble model | RandomForestRegressor | RMSE 5,031.49 | Improved RMSE by 2,818.07 vs Ridge |
+| 3 | Best structured model | Same features with randomized tree splits | ExtraTreesRegressor | RMSE 4,848.90 | Improved RMSE by 182.59 vs Random Forest |
 
 #### 2A.5 Evaluation and Error Analysis
-
-* Metrics used: MAE, RMSE, R2.
-* Legacy top-level result: demo fallback report, 18 rows, Ridge Regression best model, RMSE 3789.83, R2 0.0922.
-* Real-data nested result: 240101 cleaned/evaluated rows in `reports/reports/metrics_numeric.json`; ExtraTreesRegressor best model, MAE 2969.22, RMSE 4848.90, R2 0.9101.
-* Error patterns and likely causes: Rare brands/models, unrealistic prices, incomplete condition data, cross-source differences, mileage outliers, missing descriptions, older vehicles, and luxury vehicles. See `src/train_numeric.py`, saved error analysis.
+- Metrics used: MAE, RMSE, and R2 on a train/test split with `random_state=42`.
+- Final results: Real-data numeric report in `reports/reports/metrics_numeric.json` used 240,101 cleaned/evaluated rows. The best model was ExtraTreesRegressor with MAE 2,969.22, RMSE 4,848.90, and R2 0.9101.
+- Error patterns and likely causes: Largest errors occur for rare brands/models, unrealistic seller prices, incomplete condition/title information, mileage outliers, luxury or collector vehicles, and cross-source differences between Craigslist and Cars.com rows. The report stores the top prediction errors in `reports/reports/metrics_numeric.json`.
 
 #### 2A.6 Integration with Other Block(s)
+- Inputs received from other block(s): The integrated model receives NLP-derived features from [`src/nlp_features.py`](src/nlp_features.py): description length, risk keyword count, positive keyword count, text risk score, and NLP risk label.
+- Outputs provided to other block(s): The numeric model provides predicted fair price, price difference, and price status to the final recommendation logic in [`src/inference.py`](src/inference.py), which combines these values with NLP risk signals.
 
-* Inputs received from other block(s): NLP features can be included in the integrated price model: description length, risk keyword count, positive keyword count, text risk score, and NLP risk label.
-* Outputs provided to other block(s): Predicted fair price, price difference, and price status are combined with NLP risk in `src/inference.py`, function `predict_listing()`.
+Guidance hint: Keep entries practical and evidence-based.
+Evidence hint: Add values, not only claims.
 
-### 2B. NLP
+### 2B. NLP (If selected)
 
 #### 2B.1 Data Source(s)
+List every usage of a data source as a separate entry. If the same source is used twice for different roles, add it twice.
 
-Entry | Source name or link | Type | Current evidence | Role in this block
---- | --- | --- | --- | ---
-1 | `austinreese/craigslist-carstrucks-data` | Seller description text | Real-data nested NLP report records 365246 text rows | Main NLP text source
-2 | manual app input | User-provided text | Runtime form field in `app.py` | Runtime risk analysis
+| Entry | Source name or link | Type | Size | Role in this block |
+| --- | --- | --- | --- | --- |
+| 1 | `austinreese/craigslist-carstrucks-data` | Seller description text | 365,246 non-empty text rows in `reports/reports/metrics_nlp.json` | Main NLP training/evaluation source for seller-description risk analysis |
+| 2 | Manual app input in [`app.py`](app.py) | User-provided listing description | One text description per app prediction | Runtime NLP risk analysis and buyer explanation |
+| 3 | N/A | N/A | N/A | N/A |
 
 #### 2B.2 Preprocessing and Prompt Design
-
-* Text preprocessing: Lowercase, remove URLs and punctuation, normalize spaces. See `src/nlp_features.py`, function `clean_text()`.
-* Prompt design or retrieval setup: N/A. This project uses classical NLP rather than paid LLM prompts or retrieval.
-* Keyword extraction: Risk and positive keywords are extracted in `extract_keyword_features()`.
-* Negation handling: Phrases such as "no accident", "accident free", "no damage", and "no repair needed" avoid false high-risk counts.
-* Weak label generation: `generate_weak_risk_label()` converts text risk score into Low, Medium, or High labels.
-* TF-IDF vectorization: `src/train_nlp.py` uses `TfidfVectorizer` with unigrams and bigrams.
-* Generated explanation template: `generate_buyer_explanation()` explains price difference, risk terms, positive terms, and buyer caution.
+- Text preprocessing: [`src/nlp_features.py`](src/nlp_features.py) lowercases text, removes URLs and punctuation, normalizes spaces, extracts risk/positive keyword features, and handles negated risk phrases such as "no accident", "accident free", and "no damage".
+- Prompt design or retrieval setup: N/A. This project uses classical NLP and weak-label classification rather than prompts, LLM calls, or retrieval-augmented generation.
 
 #### 2B.3 Approach Selection
-
-* Approach used: Classical NLP with negation-aware rules and TF-IDF + LogisticRegression.
-* Alternatives considered: Naive keyword counts were considered as a baseline; transformer or LLM approaches were avoided to keep the project lightweight, reproducible, and free of external APIs.
+- Approach used (classical NLP, transformer, RAG, prompt engineering): Classical NLP with transparent rules, negation handling, TF-IDF unigrams/bigrams, and LogisticRegression in [`src/train_nlp.py`](src/train_nlp.py).
+- Alternatives considered: A naive keyword-only baseline was used first. Transformer/LLM approaches were avoided because the project should remain lightweight, reproducible, local, and free of external API dependencies.
 
 #### 2B.4 Comparison and Iterations
-
-Iteration | Objective | Key changes | Model or setup | Main metric or qualitative check | Result
---- | --- | --- | --- | --- | ---
-1 | naive keyword baseline | count risk words directly | rule-based keywords | qualitative false positive checks | baseline implemented
-2 | negation-aware rule-based approach | add negation and positive phrases | rules in `src/nlp_features.py` | weak risk label sanity checks | reduces false positives for "no accident"
-3 | TF-IDF + LogisticRegression classifier | train classifier on weak labels | TF-IDF bigrams + LogisticRegression | accuracy and macro F1 | nested real-data report: accuracy 0.9902, macro F1 0.7404
+| Iteration | Objective | Key changes | Model or prompt setup | Main metric or qualitative check | Change vs previous |
+| --- | --- | --- | --- | --- | --- |
+| 1 | Baseline risk signal | Count risk words directly | Rule-based keyword counts | Qualitative false-positive checks | Baseline |
+| 2 | Reduce false positives | Add negation and positive phrase handling | Rules in [`src/nlp_features.py`](src/nlp_features.py) | Known edge cases such as "no accident" and "no damage" | Improved handling of negated risk words |
+| 3 | Train NLP classifier | Train on weak labels from rule-based NLP | TF-IDF bigrams + LogisticRegression | Accuracy 0.9902, macro F1 0.7404 | Adds model-based risk classification over text features |
 
 #### 2B.5 Evaluation and Error Analysis
-
-* Evaluation strategy: Use weak labels generated from rule-based NLP; split text rows into train/test; report accuracy, macro F1, confusion matrix, classification report, and qualitative examples.
-* Legacy top-level result: demo fallback report with 12 text rows and 3 test examples.
-* Real-data nested result: `reports/reports/metrics_nlp.json` records 365246 text rows, class distribution Low 299066, Medium 65971, High 209, accuracy 0.9902, macro F1 0.7404.
-* Error patterns and likely causes: Weak labels are not human labels; high-risk examples are rare; keywords can mislead when wording is complex; negation phrases require special handling.
+- Evaluation strategy: Generate weak labels from transparent NLP rules, split text rows into train/test, report accuracy, macro F1, classification report, confusion matrix, and qualitative examples.
+- Results: `reports/reports/metrics_nlp.json` records 365,246 text rows with class distribution Low 299,066, Medium 65,971, and High 209. TF-IDF + LogisticRegression achieved accuracy 0.9902 and macro F1 0.7404.
+- Error patterns and likely causes: High-risk examples are rare, weak labels are not human-verified ground truth, keywords can be misleading in complex wording, and the classifier inherits bias from the rule-based labels. Qualitative examples and negation checks are stored in `reports/reports/metrics_nlp.json`.
 
 #### 2B.6 Integration with Other Block(s)
+- Inputs received from other block(s): The NLP component receives seller descriptions from the unified processed listing schema created by [`src/data_loading.py`](src/data_loading.py) and manual app descriptions from [`app.py`](app.py).
+- Outputs provided to other block(s): NLP outputs include description length, risk keyword count, positive keyword count, text risk score, NLP risk label, risk terms, and positive terms. These are used by [`src/train_integrated.py`](src/train_integrated.py) and [`src/inference.py`](src/inference.py) for integrated price prediction, offer range adjustment, and buyer-facing explanation.
 
-* Inputs received from other block(s): Seller description from the unified processed data schema.
-* Outputs provided to other block(s): Description length, risk keyword count, positive keyword count, text risk score, NLP risk label, risk terms, and positive terms. These are used by `src/train_integrated.py` and `src/inference.py`.
+Guidance hint: Show concrete prompt or retrieval decisions.
+Evidence hint: Include representative outputs or failure cases.
 
-### 2C. Computer Vision
-
-Computer Vision was not selected for this project. The project intentionally focuses on ML Numeric Data and NLP. No image data, image preprocessing, or vision model is used.
+### 2C. Computer Vision (If selected)
 
 #### 2C.1 Data Source(s)
-N/A
+List every usage of a data source as a separate entry. If the same source is used twice for different roles, add it twice.
+
+| Entry | Source name or link | Type | Size | Role in this block |
+| --- | --- | --- | --- | --- |
+| 1 | N/A | N/A | N/A | Computer Vision was not selected |
+| 2 | N/A | N/A | N/A | N/A |
+| 3 | N/A | N/A | N/A | N/A |
 
 #### 2C.2 Preprocessing and Augmentation
-N/A
+- Image preprocessing: N/A.
+- Augmentation strategy: N/A.
 
 #### 2C.3 Model Selection
-N/A
+- Vision model(s) used: N/A.
+- Why these model(s) were chosen: N/A.
 
 #### 2C.4 Model Comparison and Iterations
-N/A
+| Iteration | Objective | Key changes | Model(s) used | Main metric | Change vs previous |
+| --- | --- | --- | --- | --- | --- |
+| 1 | N/A | N/A | N/A | N/A | N/A |
+| 2 | N/A | N/A | N/A | N/A | N/A |
+| 3 | N/A | N/A | N/A | N/A | N/A |
 
 #### 2C.5 Evaluation and Error Analysis
-N/A
+- Metrics and/or visual checks: N/A.
+- Final results: N/A.
+- Error patterns and limitations: N/A.
 
 #### 2C.6 Integration with Other Block(s)
-N/A
+- Inputs received from other block(s): N/A.
+- Outputs provided to other block(s): N/A.
+
+Guidance hint: Use concise examples from real predictions.
+Evidence hint: Include sample outputs and observed failure cases.
 
 ---
 
 ## 3. Deployment
 
-* Deployment URL: robertobertol.com
-* Main user flow: User enters a listing, the Gradio app predicts fair price, extracts NLP risk signals, recommends an offer range, and explains the result.
-* Screenshot or short demo: Not complete in this local copy; `screenshots/` contains placeholder notes only.
-* Gradio app evidence: `app.py`
-* Deployment packaging note: upload `app.py`, `requirements.txt`, `src/`, `models/`, `documentation.md`, and `README.md` to a Gradio Hugging Face Space after final artifacts are aligned.
+- Deployment URL: https://robertobertol.com
+- Main user flow: The user enters vehicle fields and a seller description in the Gradio app. The app predicts fair price, extracts NLP risk signals, calculates a recommended offer range, and returns a buyer-friendly recommendation.
+- Screenshot or short demo: Screenshots will be added in the `screenshots/` folder before final submission. Current placeholder files are `screenshots/placeholder_input.md` and `screenshots/placeholder_output.md`.
+
+Guidance hint: Deployment must be usable.
+Evidence hint: Add screenshots or short demo references.
 
 ---
 
 ## 4. Execution Instructions
 
-* Environment setup: Create a Python virtual environment and install `requirements.txt`.
-* Data setup: Manually download the two Kaggle CSV files and place them in `data/raw/` with the exact expected filenames.
-* Training commands: Run data loading, numeric, NLP, and integrated training from the project root.
-* Inference/run command: Run `python app.py`.
-* Reproducibility notes: All splits use `random_state=42`; data is read only from local CSV files; scripts use project-relative paths through pathlib. Training defaults use all available CPU cores and full feature/data capacity unless environment variables intentionally cap them.
-* Important current-state note: real-data artifacts currently live in nested folders such as `models/models/` and `reports/reports/`. The app inference code now prefers the nested real-data model folder when its metadata confirms that it is not demo data.
+- Environment setup: Create a Python virtual environment and install dependencies from `requirements.txt`.
+- Data setup: Manually download the two Kaggle CSV files and place them at `data/raw/kaggle_craigslist_vehicles.csv` and `data/raw/kaggle_carscom_used_cars.csv`. The raw CSV files are intentionally excluded from GitHub because they are large.
+- Training command(s): Run `python -m src.data_loading`, `python -m src.train_numeric`, `python -m src.train_nlp`, `python -m src.train_integrated`, and `python -m src.evaluate` from the project root.
+- Inference/run command(s): Run `python app.py` from the project root.
+- Reproducibility notes: All train/test splits use `random_state=42`. Scripts use project-relative paths through `pathlib`. The app prefers the real-data artifact set under `models/models/` when `models/models/metadata.json` has `using_demo_data: false`. Large `.joblib` model binaries are excluded from GitHub and must be restored from deployment storage or regenerated by running the training commands.
 
 Exact commands:
 
@@ -228,37 +245,25 @@ python -m src.evaluate
 python app.py
 ```
 
+Guidance hint: Another person should be able to run your project from this section.
+Evidence hint: Include exact commands and versions.
+
 ---
 
 ## 5. Optional Bonus Evidence
 
-* Third selected block implemented with strong quality: N/A
-* More than two data sources used with clear added value: Two different Kaggle sources are integrated with safe schema mapping.
-* A core section is done exceptionally well: Integrated inference combines numeric ML, NLP risk scoring, and negotiation logic.
-* Extended evaluation: Numeric metrics, NLP weak-label metrics, integrated comparison, plots, sample predictions, and qualitative examples are generated by the scripts. Real-data examples currently exist under `reports/reports/`.
-* Ethics, bias, or fairness analysis: Included in `README.md` limitations and ethics notes.
-* Creative or exceptional use case: Risk-aware listing advisor for a real buyer workflow.
+Use this section for exceptional work beyond the core requirements.
+
+- [ ] Third selected block implemented with strong quality
+- [ ] More than two data sources used with clear added value
+- [x] A core section is done exceptionally well
+- [x] Extended evaluation
+- [x] Ethics, bias, or fairness analysis
+- [x] Creative or exceptional use case
 
 Evidence for selected bonus items:
 
-* More than one Kaggle source: Craigslist and Cars.com.
-* Transparent weak-label limitation: documented in `src/train_nlp.py`, report files, and this file.
-* Ethics and responsible-use discussion: see `README.md`, Ethics and Responsible Use.
-* Extended error analysis: see `reports/reports/metrics_numeric.json`, `reports/reports/metrics_nlp.json`, and `reports/reports/metrics_integrated.json` for the nested real-data artifact set.
-
----
-
-## Current Completion Checklist
-
-* [x] Student name added
-* [x] GitHub repository created and pushed
-* [x] Deployment URL added
-* [ ] Required GitHub collaborators added (`jasminh`, `bkuehnis`)
-* [ ] Real screenshots added
-* [x] ML Numeric Data code implemented
-* [x] NLP code implemented
-* [x] Computer Vision kept out of scope
-* [x] Raw Kaggle CSV files present locally
-* [x] Real-data artifacts generated at least once
-* [x] Runtime inference prefers the real-data model artifact set
-* [x] Final selected metrics copied into documentation
+- A core section is done exceptionally well: [`src/inference.py`](src/inference.py) combines numeric ML output, NLP risk scoring, price-difference logic, and negotiation guidance into one buyer workflow.
+- Extended evaluation: Reports include numeric metrics, NLP weak-label metrics, integrated structured-plus-NLP comparison, plots, sample predictions, confusion matrix, and qualitative NLP examples under `reports/reports/`.
+- Ethics, bias, or fairness analysis: `README.md` documents limitations around historical listing bias, regional coverage, weak labels, missing condition/trim information, and responsible use.
+- Creative or exceptional use case: The project turns used-car listings into a practical risk-aware buyer advisor instead of only returning a raw price prediction.
