@@ -1,0 +1,135 @@
+{
+  "label_type": "weak labels generated from rule-based NLP",
+  "number_of_text_rows": 365246,
+  "class_distribution": {
+    "Medium": 65971,
+    "Low": 299066,
+    "High": 209
+  },
+  "rule_based_summary": {
+    "average_text_risk_score": 0.06775386999446949,
+    "average_risk_keyword_count": 0.46119054007436083,
+    "average_positive_keyword_count": 0.5791439194405962,
+    "note": "Rule-based labels are transparent but not human-verified ground truth."
+  },
+  "tfidf_logistic_regression_metrics": {
+    "accuracy": 0.9902258726899384,
+    "macro_f1": 0.7403618136839203,
+    "classification_report": {
+      "High": {
+        "precision": 0.1592356687898089,
+        "recall": 0.5952380952380952,
+        "f1-score": 0.25125628140703515,
+        "support": 42.0
+      },
+      "Low": {
+        "precision": 0.9959615932436282,
+        "recall": 0.993680409268733,
+        "f1-score": 0.9948196935334042,
+        "support": 59814.0
+      },
+      "Medium": {
+        "precision": 0.9741979418886199,
+        "recall": 0.975822343489465,
+        "f1-score": 0.9750094661113214,
+        "support": 13194.0
+      },
+      "accuracy": 0.9902258726899384,
+      "macro avg": {
+        "precision": 0.7097984013073524,
+        "recall": 0.8549136159987644,
+        "f1-score": 0.7403618136839203,
+        "support": 73050.0
+      },
+      "weighted avg": {
+        "precision": 0.9915496547794934,
+        "recall": 0.9902258726899384,
+        "f1-score": 0.9908141383805464,
+        "support": 73050.0
+      }
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "matrix": [
+      [
+        25,
+        0,
+        17
+      ],
+      [
+        54,
+        59436,
+        324
+      ],
+      [
+        78,
+        241,
+        12875
+      ]
+    ]
+  },
+  "qualitative_examples": {
+    "low_risk_example": {
+      "label": "Low",
+      "text": "2013 F-150 XLT V6 4 Door. Good condition. Leveling kit. New Tires.",
+      "risk_terms_found": "",
+      "positive_terms_found": "new tires",
+      "text_risk_score": 0.0
+    },
+    "medium_risk_example": {
+      "label": "Medium",
+      "text": "Carvana is the safer way to buy a car During these uncertain times, Carvana is dedicated to ensuring safety for all of our customers. In addition to our 100% online shopping and selling experience that allows all customers to buy and trade their cars without ever leaving the safety of their house, we\u2019re providing touchless delivery that make all aspects of our process even safer. Now, you can get the car you want, and trade in your old one, while avoiding person-to-person contact with our friendly advocates. There are some things that can\u2019t be put off. And if buying a car is one of them, know that we\u2019re doing everything we can to keep you keep moving while continuing to put your health safety, and happiness first. Vehicle Stock# 2000909557\ud83d\udcf1 Want to instantly check this car\u2019s availability? Call us at  334-758-9176Just text that stock number to 855-976-4304 or head to http://www.carvanaauto.com/7171237-74502 and plug it into the search bar!Get PRE-QUALIFIED for your auto loan in 2 minutes - no hit to your credit:http://finance.carvanaauto.com/7171237-74502Looking for more cars like this one? We have 63 GMC Sierra 1500 Crew Cab in stock for as low as $23990!Why buy with Carvana? We have one standard: the highest. Take a look at just some of the qualifications all of our cars must meet before we list them.150-POINT INSPECTION: We put each vehicle through a 150-point inspection so that you can be 100% confident in its quality and safety. See everything that goes into our inspections at:http://www.carvanaauto.com/7171237-74502NO REPORTED ACCIDENTS: We do not sell cars that have been in a reported accident or have a frame or structural damage.7 DAY TEST OWN MONEY BACK GUARANTEE: Every Carvana car comes with a 7-day money-back guarantee. Why? It takes more than 15-minutes to make a decision on your next car. Learn more about test owning at http://about.carvanaauto.comFLEXIBLE FINANCING, TRADE INS WELCOME: We\u2019re all about real-time financing without the middle man. Need financing? Pick a combination of down and monthly payments that work for you. Have a trade-in? We\u2019ll give you a value in 2 minutes. Check out everything about our financing at:http://finance.carvanaauto.com/7171237-74502COST SAVINGS: Carvana's business model has fewer expenses and no bloated fees compared to your local dealership. See how much we can save you at http://about.carvanaauto.comPREMIUM DETAIL: We go the extra mile so that your car is looking as good as new. There are a lot of specifics that we won\u2019t list here (we wash, clean, buff, paint, polish, wax, seal), but trust us that when your car arrives, it\u2019s going to look sweet.Vehicle Info for Stock# 2000909557Trim: SLT Pickup 4D 5 3/4 ft pickupMileage: 57k milesExterior Color: WhiteInterior Color: Lt. BrownEngine: EcoTec3 5.3L Flex Fuel V8 355hp 383ft. lbs.Drive: Two Wheel DriveTransmission: VIN: 3GTP1VEC4EG551563Dealer Disclosure: Price excludes tax, title, and registration (which we handle for you).Disclaimer: You agree that by providing your phone number, Carvana, or Carvana\u2019s authorized representatives*, may call and/or send text messages (including by using equipment to automatically dial telephone numbers) about your interest in a purchase, for marketing/sales purposes, or for any other servicing or informational purpose related to your account. You do not have to consent to receiving calls or texts to purchase from Carvana. While every reasonable effort is made to ensure the accuracy of the information for this GMC Sierra 1500 Crew Cab, we are not responsible for any errors or omissions contained in this ad. Please verify any information in question with Carvana at 334-758-9176*Including, but not limited to, Bridgecrest Credit Company, GO Financial and SilverRock Automotive.*GMC* *Sierra* *1500* *Crew* *Cab* *Base* *GMC* *Sierra* *1500* *Crew* *Cab* *SLE* *GMC* *Sierra* *1500* *Crew* *Cab* *SLT* *GMC* *Sierra* *1500* *Crew* *Cab* *Denali* *GMC* *Sierra* *1500* *Crew* *Cab* *Work* *Truck* *4x2* *GMC* *Sierra* *1500* *Crew* *Cab* *4x4* *Crew* *Cab* *GMC* *Sierra* *1500* *Crew* *Cab* *Regular* *Cab* *Extended* *Cab* *Truck* 2022  2021  2020  2019  2018  2017  2016  2015  2014  2013  2012  2011  2010  2009  2008  2007  2006  2005  2004  2003  2002  2001  2000   22  21    19  18  17  16  15  14  13  12  11  10  09  08  07  06  05  04  03  02  01  00",
+      "risk_terms_found": "accident; damage",
+      "positive_terms_found": "",
+      "text_risk_score": 0.3
+    },
+    "high_risk_example": {
+      "label": "High",
+      "text": "Looking to sell my 2006 Subaru Impreza hatchback. The good: engines only got 97,000 miles on it, runs strong, shifts great, steerings tight, has new plugs, wires, and coil pack, good tires (bought new a few years ago and have put low miles on them), and interior is in great shape.   The bad: its a northeast car and has rust on the rear wheel wells and underside of the car, has typical dings and scratches for a car this old, exhaust is rusted and will need to be replaced (muffler is supported on one side by tie wire), brakes are very soft and needs pads and rotors all the way around (particularly the rear which have started to grind), ABS light recently came on, check engine light throws a minor evap leak code, CD stuck in the CD player, has developed a passive electricity drain (if it sits for a few weeks it may need to be jump started but doesn't happen when driven daily), and it leaks oil (most likely from the valve cover gaskets) onto the exhaust, which results in under hood smoke. Theres an open recall on the passenger air bag, I've tried numerous times to get the Subaru dealer in Columbus to replace this, but they always have an excuse for why the can't do it or say they'll call with an appointment and never do and I stopped trying once it was no longer my daily driver.  It books for $3600 in fair condition, but considering the work it needs am asking $2100 or best offer. The car was a reliable daily driver for me for 5 years and could continue to be with a new exhaust, pads and rotors, and valve cover gaskets. It could also be a great parts car for someone looking for a good engine, transmission, and seats.",
+      "risk_terms_found": "rust; check engine; check engine light; smoke",
+      "positive_terms_found": "",
+      "text_risk_score": 0.8099999999999999
+    },
+    "failure_cases_and_negation_checks": [
+      {
+        "text": "no accident, no damage, no repair needed",
+        "generated_label": "Low",
+        "risk_terms_found": "",
+        "positive_terms_found": "no accident; no damage; no repair needed",
+        "text_risk_score": 0.0
+      },
+      {
+        "text": "accident free and recently serviced",
+        "generated_label": "Low",
+        "risk_terms_found": "",
+        "positive_terms_found": "recently serviced; accident free",
+        "text_risk_score": 0.0
+      },
+      {
+        "text": "minor scratches on bumper but inspection passed",
+        "generated_label": "Low",
+        "risk_terms_found": "minor scratches",
+        "positive_terms_found": "inspection passed",
+        "text_risk_score": 0.18
+      },
+      {
+        "text": "engine problem with check engine light and oil leak",
+        "generated_label": "High",
+        "risk_terms_found": "engine problem; oil leak; check engine; check engine light",
+        "positive_terms_found": "",
+        "text_risk_score": 0.96
+      }
+    ]
+  },
+  "limitations": [
+    "Risk labels are weak labels generated from keyword and negation rules, not human annotations.",
+    "Seller descriptions can omit important defects or exaggerate positives.",
+    "Keyword logic can still be misled by sarcasm, spelling errors, and complex phrasing.",
+    "The TF-IDF classifier learns from weak labels, so it inherits some rule-based bias."
+  ]
+}

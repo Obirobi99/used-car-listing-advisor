@@ -1,0 +1,41 @@
+{
+  "structured_only_model_metrics": {
+    "RandomForestRegressor": {
+      "MAE": 6308.185792877756,
+      "RMSE": 6385.176535223214,
+      "R2": -1.5768424656347704
+    },
+    "HistGradientBoostingRegressor": {
+      "MAE": 5203.5714285714275,
+      "RMSE": 6549.735155885686,
+      "R2": -1.7113746387356041
+    }
+  },
+  "structured_plus_nlp_model_metrics": {
+    "RandomForestRegressor": {
+      "MAE": 6109.140306122448,
+      "RMSE": 6176.312970749968,
+      "R2": -1.4110190424746936
+    },
+    "HistGradientBoostingRegressor": {
+      "MAE": 5203.5714285714275,
+      "RMSE": 6549.735155885686,
+      "R2": -1.7113746387356041
+    }
+  },
+  "best_integrated_model": "RandomForestRegressor",
+  "best_integrated_metrics": {
+    "MAE": 6109.140306122448,
+    "RMSE": 6176.312970749968,
+    "R2": -1.4110190424746936
+  },
+  "rmse_difference_structured_minus_integrated": 208.8635644732458,
+  "interpretation": "Integrated NLP features improved RMSE on this split.",
+  "nlp_features_used": [
+    "description_length_words",
+    "risk_keyword_count",
+    "positive_keyword_count",
+    "text_risk_score",
+    "nlp_risk_label"
+  ]
+}

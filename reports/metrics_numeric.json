@@ -1,0 +1,156 @@
+{
+  "dataset_shape_summary": {
+    "rows": 18,
+    "columns": 23
+  },
+  "column_summary": [
+    "listing_id",
+    "source_name",
+    "brand",
+    "model",
+    "year",
+    "mileage_km",
+    "fuel_type",
+    "transmission",
+    "body_type",
+    "engine_size_l",
+    "condition",
+    "title_status",
+    "drive",
+    "paint_color",
+    "location_country",
+    "location_region",
+    "currency",
+    "seller_price",
+    "seller_description",
+    "car_age",
+    "mileage_per_year",
+    "log_mileage",
+    "seller_price_log"
+  ],
+  "missing_value_summary": {
+    "listing_id": 0,
+    "source_name": 0,
+    "brand": 0,
+    "model": 0,
+    "year": 0,
+    "mileage_km": 0,
+    "fuel_type": 0,
+    "transmission": 0,
+    "body_type": 0,
+    "engine_size_l": 13,
+    "condition": 0,
+    "title_status": 0,
+    "drive": 0,
+    "paint_color": 0,
+    "location_country": 0,
+    "location_region": 0,
+    "currency": 0,
+    "seller_price": 0,
+    "seller_description": 6,
+    "car_age": 0,
+    "mileage_per_year": 0,
+    "log_mileage": 0,
+    "seller_price_log": 0
+  },
+  "source_distribution": {
+    "kaggle_craigslist": 12,
+    "kaggle_carscom": 6
+  },
+  "model_metrics": {
+    "Ridge Regression": {
+      "MAE": 3650.778816063353,
+      "RMSE": 3789.8346996866408,
+      "R2": 0.09221586879248322
+    },
+    "RandomForestRegressor": {
+      "MAE": 6306.808193542567,
+      "RMSE": 6378.74450059933,
+      "R2": -1.5716535748086873
+    },
+    "HistGradientBoostingRegressor": {
+      "MAE": 5203.5714285714275,
+      "RMSE": 6549.735155885686,
+      "R2": -1.7113746387356041
+    },
+    "GradientBoostingRegressor": {
+      "MAE": 3168.375503870416,
+      "RMSE": 4350.598986188569,
+      "R2": -0.19630015650009924
+    }
+  },
+  "best_model": "Ridge Regression",
+  "best_metrics": {
+    "MAE": 3650.778816063353,
+    "RMSE": 3789.8346996866408,
+    "R2": 0.09221586879248322
+  },
+  "error_analysis": {
+    "top_prediction_errors": [
+      {
+        "actual_price": 5900,
+        "predicted_price": 11157.072878769073,
+        "absolute_error": 5257.072878769073,
+        "percentage_error": 89.10293014862836,
+        "brand": "nissan",
+        "model": "altima",
+        "year": 2014,
+        "mileage_km": 160000,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 16600,
+        "predicted_price": 20393.577818757905,
+        "absolute_error": 3793.5778187579053,
+        "percentage_error": 22.852878426252442,
+        "brand": "hyundai",
+        "model": "elantra",
+        "year": 2020,
+        "mileage_km": 61000,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 14200,
+        "predicted_price": 17041.074020531858,
+        "absolute_error": 2841.074020531858,
+        "percentage_error": 20.00756352487224,
+        "brand": "toyota",
+        "model": "corolla",
+        "year": 2018,
+        "mileage_km": 89000,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 12800,
+        "predicted_price": 15511.390546194576,
+        "absolute_error": 2711.390546194576,
+        "percentage_error": 21.182738642145125,
+        "brand": "honda",
+        "model": "civic",
+        "year": 2017,
+        "mileage_km": 104000,
+        "source_name": "kaggle_craigslist"
+      }
+    ],
+    "likely_causes": [
+      "rare brands or models with few comparable listings",
+      "unrealistic or strategic seller prices",
+      "incomplete condition and title information",
+      "cross-source differences between Craigslist and Cars.com rows",
+      "mileage outliers",
+      "missing seller descriptions for secondary-source rows",
+      "older vehicles with collector or poor-condition effects",
+      "luxury vehicles where options and trim matter but are not fully modeled"
+    ]
+  },
+  "figures": [
+    "reports/figures/price_distribution.png",
+    "reports/figures/mileage_distribution.png",
+    "reports/figures/car_age_distribution.png",
+    "reports/figures/mileage_vs_price.png",
+    "reports/figures/average_price_by_brand_top10.png",
+    "reports/figures/model_comparison_rmse.png",
+    "reports/figures/actual_vs_predicted.png",
+    "reports/figures/residual_plot.png"
+  ]
+}

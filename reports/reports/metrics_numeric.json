@@ -1,0 +1,217 @@
+{
+  "dataset_shape_summary": {
+    "rows": 240101,
+    "columns": 23
+  },
+  "column_summary": [
+    "listing_id",
+    "source_name",
+    "brand",
+    "model",
+    "year",
+    "mileage_km",
+    "fuel_type",
+    "transmission",
+    "body_type",
+    "engine_size_l",
+    "condition",
+    "title_status",
+    "drive",
+    "paint_color",
+    "location_country",
+    "location_region",
+    "currency",
+    "seller_price",
+    "seller_description",
+    "car_age",
+    "mileage_per_year",
+    "log_mileage",
+    "seller_price_log"
+  ],
+  "missing_value_summary": {
+    "listing_id": 0,
+    "source_name": 0,
+    "brand": 0,
+    "model": 0,
+    "year": 0,
+    "mileage_km": 0,
+    "fuel_type": 0,
+    "transmission": 0,
+    "body_type": 0,
+    "engine_size_l": 84276,
+    "condition": 0,
+    "title_status": 0,
+    "drive": 0,
+    "paint_color": 0,
+    "location_country": 0,
+    "location_region": 0,
+    "currency": 0,
+    "seller_price": 0,
+    "seller_description": 164569,
+    "car_age": 0,
+    "mileage_per_year": 0,
+    "log_mileage": 0,
+    "seller_price_log": 0
+  },
+  "source_distribution": {
+    "kaggle_carscom": 164569,
+    "kaggle_craigslist": 75532
+  },
+  "model_metrics": {
+    "Ridge Regression": {
+      "MAE": 5163.288233644043,
+      "RMSE": 7849.564653031551,
+      "R2": 0.7644295902972813
+    },
+    "RandomForestRegressor": {
+      "MAE": 3122.81411629707,
+      "RMSE": 5031.491368847067,
+      "R2": 0.9032116559577898
+    },
+    "ExtraTreesRegressor": {
+      "MAE": 2969.2229544339707,
+      "RMSE": 4848.897047558508,
+      "R2": 0.910109142791167
+    }
+  },
+  "best_model": "ExtraTreesRegressor",
+  "best_metrics": {
+    "MAE": 2969.2229544339707,
+    "RMSE": 4848.897047558508,
+    "R2": 0.910109142791167
+  },
+  "error_analysis": {
+    "top_prediction_errors": [
+      {
+        "actual_price": 94850.0,
+        "predicted_price": 19834.277916666666,
+        "absolute_error": 75015.72208333333,
+        "percentage_error": 79.08879502723597,
+        "brand": "ferrari",
+        "model": "other",
+        "year": 1990.0,
+        "mileage_km": 11785.19682,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 88889.0,
+        "predicted_price": 15506.195833333337,
+        "absolute_error": 73382.80416666667,
+        "percentage_error": 82.55555149306063,
+        "brand": "acura",
+        "model": "other",
+        "year": 2000.0,
+        "mileage_km": 65474.38856,
+        "source_name": "kaggle_carscom"
+      },
+      {
+        "actual_price": 89999.0,
+        "predicted_price": 18367.826666666668,
+        "absolute_error": 71631.17333333334,
+        "percentage_error": 79.59107693789191,
+        "brand": "nissan",
+        "model": "other",
+        "year": 2015.0,
+        "mileage_km": 88973.97124,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 1008.0,
+        "predicted_price": 71170.02142857143,
+        "absolute_error": 70162.02142857143,
+        "percentage_error": 6960.517998866213,
+        "brand": "ford",
+        "model": "other",
+        "year": 2019.0,
+        "mileage_km": 48886.92118,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 92577.0,
+        "predicted_price": 25550.706666666672,
+        "absolute_error": 67026.29333333333,
+        "percentage_error": 72.40058905919757,
+        "brand": "acura",
+        "model": "other",
+        "year": 1991.0,
+        "mileage_km": 94629.192,
+        "source_name": "kaggle_carscom"
+      },
+      {
+        "actual_price": 1025.0,
+        "predicted_price": 68050.99041666665,
+        "absolute_error": 67025.99041666665,
+        "percentage_error": 6539.121016260161,
+        "brand": "ford",
+        "model": "f-350",
+        "year": 2020.0,
+        "mileage_km": 25308.48084,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 89995.0,
+        "predicted_price": 23069.698333333334,
+        "absolute_error": 66925.30166666667,
+        "percentage_error": 74.36557771728059,
+        "brand": "ferrari",
+        "model": "other",
+        "year": 2002.0,
+        "mileage_km": 43629.2074,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 972.0,
+        "predicted_price": 64539.9019345238,
+        "absolute_error": 63567.9019345238,
+        "percentage_error": 6539.907606432489,
+        "brand": "ford",
+        "model": "other",
+        "year": 2017.0,
+        "mileage_km": 76947.37342,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 89000.0,
+        "predicted_price": 32735.148035714286,
+        "absolute_error": 56264.85196428571,
+        "percentage_error": 63.21893479133226,
+        "brand": "ford",
+        "model": "other",
+        "year": 2018.0,
+        "mileage_km": 10903.2785,
+        "source_name": "kaggle_craigslist"
+      },
+      {
+        "actual_price": 84900.0,
+        "predicted_price": 30234.430252976184,
+        "absolute_error": 54665.569747023816,
+        "percentage_error": 64.38818580332605,
+        "brand": "ford",
+        "model": "other",
+        "year": 2018.0,
+        "mileage_km": 62764.26,
+        "source_name": "kaggle_craigslist"
+      }
+    ],
+    "likely_causes": [
+      "rare brands or models with few comparable listings",
+      "unrealistic or strategic seller prices",
+      "incomplete condition and title information",
+      "cross-source differences between Craigslist and Cars.com rows",
+      "mileage outliers",
+      "missing seller descriptions for secondary-source rows",
+      "older vehicles with collector or poor-condition effects",
+      "luxury vehicles where options and trim matter but are not fully modeled"
+    ]
+  },
+  "figures": [
+    "reports/figures/price_distribution.png",
+    "reports/figures/mileage_distribution.png",
+    "reports/figures/car_age_distribution.png",
+    "reports/figures/mileage_vs_price.png",
+    "reports/figures/average_price_by_brand_top10.png",
+    "reports/figures/model_comparison_rmse.png",
+    "reports/figures/actual_vs_predicted.png",
+    "reports/figures/residual_plot.png"
+  ]
+}

@@ -1,0 +1,18 @@
+.venv/
+__pycache__/
+**/__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+reports/.matplotlib/
+reports/**/.matplotlib/
+
+# Large local datasets should be downloaded manually and kept out of git.
+data/raw/kaggle_craigslist_vehicles.csv
+data/raw/kaggle_carscom_used_cars.csv
+data/processed/*.csv
+
+# Trained binary artifacts are too large for normal GitHub pushes.
+# Keep metrics/metadata in git; store model binaries in deployment storage or release assets.
+models/**/*.joblib
+models/*.joblib

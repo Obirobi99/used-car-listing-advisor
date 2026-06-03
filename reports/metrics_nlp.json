@@ -1,0 +1,135 @@
+{
+  "label_type": "weak labels generated from rule-based NLP",
+  "number_of_text_rows": 12,
+  "class_distribution": {
+    "Low": 5,
+    "Medium": 3,
+    "High": 4
+  },
+  "rule_based_summary": {
+    "average_text_risk_score": 0.37083333333333335,
+    "average_risk_keyword_count": 2.1666666666666665,
+    "average_positive_keyword_count": 2.6666666666666665,
+    "note": "Rule-based labels are transparent but not human-verified ground truth."
+  },
+  "tfidf_logistic_regression_metrics": {
+    "accuracy": 1.0,
+    "macro_f1": 1.0,
+    "classification_report": {
+      "High": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1.0
+      },
+      "Low": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1.0
+      },
+      "Medium": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 1.0
+      },
+      "accuracy": 1.0,
+      "macro avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      },
+      "weighted avg": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1-score": 1.0,
+        "support": 3.0
+      }
+    }
+  },
+  "confusion_matrix": {
+    "labels": [
+      "High",
+      "Low",
+      "Medium"
+    ],
+    "matrix": [
+      [
+        1,
+        0,
+        0
+      ],
+      [
+        0,
+        1,
+        0
+      ],
+      [
+        0,
+        0,
+        1
+      ]
+    ]
+  },
+  "qualitative_examples": {
+    "low_risk_example": {
+      "label": "Low",
+      "text": "One owner Toyota Corolla, full service history, recently serviced, new tires, clean title, no accident.",
+      "risk_terms_found": "",
+      "positive_terms_found": "full service history; service history; recently serviced; new tires; one owner; clean title; no accident",
+      "text_risk_score": 0.0
+    },
+    "medium_risk_example": {
+      "label": "Medium",
+      "text": "Runs and drives, minor scratches, some cosmetic damage, high mileage, recently serviced.",
+      "risk_terms_found": "damage; high mileage; minor scratches",
+      "positive_terms_found": "recently serviced",
+      "text_risk_score": 0.39999999999999997
+    },
+    "high_risk_example": {
+      "label": "High",
+      "text": "BMW 328i sold as is, oil leak, check engine light, needs repair, mechanic special.",
+      "risk_terms_found": "oil leak; check engine; check engine light; needs repair; sold as is; mechanic special",
+      "positive_terms_found": "",
+      "text_risk_score": 1.0
+    },
+    "failure_cases_and_negation_checks": [
+      {
+        "text": "no accident, no damage, no repair needed",
+        "generated_label": "Low",
+        "risk_terms_found": "",
+        "positive_terms_found": "no accident; no damage; no repair needed",
+        "text_risk_score": 0.0
+      },
+      {
+        "text": "accident free and recently serviced",
+        "generated_label": "Low",
+        "risk_terms_found": "",
+        "positive_terms_found": "recently serviced; accident free",
+        "text_risk_score": 0.0
+      },
+      {
+        "text": "minor scratches on bumper but inspection passed",
+        "generated_label": "Low",
+        "risk_terms_found": "minor scratches",
+        "positive_terms_found": "inspection passed",
+        "text_risk_score": 0.18
+      },
+      {
+        "text": "engine problem with check engine light and oil leak",
+        "generated_label": "High",
+        "risk_terms_found": "engine problem; oil leak; check engine; check engine light",
+        "positive_terms_found": "",
+        "text_risk_score": 0.96
+      }
+    ]
+  },
+  "limitations": [
+    "Risk labels are weak labels generated from keyword and negation rules, not human annotations.",
+    "Seller descriptions can omit important defects or exaggerate positives.",
+    "Keyword logic can still be misled by sarcasm, spelling errors, and complex phrasing.",
+    "The TF-IDF classifier learns from weak labels, so it inherits some rule-based bias."
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "using_demo_data": false,
+  "processed_rows": 1124604,
+  "source_counts": {
+    "kaggle_carscom": 759356,
+    "kaggle_craigslist": 365248
+  },
+  "raw_files": {
+    "craigslist": "data/raw/kaggle_craigslist_vehicles.csv",
+    "carscom": "data/raw/kaggle_carscom_used_cars.csv"
+  },
+  "structured_model_file": "models/price_model_structured.joblib",
+  "structured_best_model": "ExtraTreesRegressor",
+  "structured_best_metrics": {
+    "MAE": 2969.2229544339707,
+    "RMSE": 4848.897047558508,
+    "R2": 0.910109142791167
+  },
+  "text_vectorizer_file": "models/text_vectorizer.joblib",
+  "text_risk_model_file": "models/text_risk_model.joblib",
+  "nlp_label_type": "weak labels generated from rule-based NLP",
+  "integrated_model_file": "models/price_model_integrated.joblib",
+  "integrated_best_model": "ExtraTreesRegressor",
+  "integrated_best_metrics": {
+    "MAE": 2516.593341166813,
+    "RMSE": 4349.059091255837,
+    "R2": 0.9288471043584895
+  }
+}
