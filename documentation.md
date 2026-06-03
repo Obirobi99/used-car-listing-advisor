@@ -4,7 +4,7 @@
 
 * Project title: Used-Car Fair Price and Listing Risk Advisor
 * Student: Robert Obertol
-* GitHub repository URL: Not used for this submission
+* GitHub repository URL: https://github.com/Obirobi99/used-car-listing-advisor
 * Deployment URL: robertobertol.com
 * Submission date: Not provided in this local copy
 
@@ -13,7 +13,7 @@
 * At least 2 blocks selected: Yes, ML Numeric Data and NLP
 * Multiple and different data sources used: Yes, Craigslist Kaggle and Cars.com Kaggle raw CSV files are present locally
 * Deployment URL provided: Yes, robertobertol.com
-* Required GitHub users added to repository (`jasminh`, `bkuehnis`): N/A because GitHub will not be used for this submission
+* Required GitHub users added to repository (`jasminh`, `bkuehnis`): Pending; add both users in the GitHub repository settings before final submission
 
 ### Current Artifact Status
 
@@ -251,9 +251,9 @@ Evidence for selected bonus items:
 ## Current Completion Checklist
 
 * [x] Student name added
-* [x] GitHub marked as not used for this submission
+* [x] GitHub repository created and pushed
 * [x] Deployment URL added
-* [x] GitHub collaborators marked N/A
+* [ ] Required GitHub collaborators added (`jasminh`, `bkuehnis`)
 * [ ] Real screenshots added
 * [x] ML Numeric Data code implemented
 * [x] NLP code implemented

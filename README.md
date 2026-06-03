@@ -22,7 +22,8 @@ Important artifact note:
 - The top-level `data/processed/project_listings.csv` currently contains the 18-row demo dataset.
 - The `screenshots/` folder currently contains placeholder notes only, not real app screenshots.
 - Student name is Robert Obertol.
-- GitHub will not be used for this submission, so repository URL and collaborator checks are not applicable in this local copy.
+- GitHub repository: `https://github.com/Obirobi99/used-car-listing-advisor`.
+- Required GitHub collaborators (`jasminh`, `bkuehnis`) still need to be added in the GitHub repository settings before final submission.
 - Deployment URL: `robertobertol.com`.
 
 ## Why the Use Case Is Realistic
@@ -197,10 +198,10 @@ The advisor should support, not replace, human judgment. It may reflect biases i
 ## Current Submission Checklist
 
 - [x] Add student name.
-- [x] GitHub not used for this submission.
+- [x] GitHub repository created and pushed.
 - [x] Add deployment URL.
+- [ ] Add required GitHub collaborators (`jasminh`, `bkuehnis`).
 - [ ] Add real screenshots.
-- [x] Mark GitHub collaborator checks as not applicable.
 - [x] Implement ML Numeric Data block.
 - [x] Implement NLP block.
 - [x] Keep Computer Vision out of scope.
