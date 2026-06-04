@@ -6,6 +6,8 @@ __pycache__/
 .DS_Store
 reports/.matplotlib/
 reports/**/.matplotlib/
+gradio-local.out.log
+gradio-local.err.log
 
 # Large local datasets should be downloaded manually and kept out of git.
 data/raw/kaggle_craigslist_vehicles.csv

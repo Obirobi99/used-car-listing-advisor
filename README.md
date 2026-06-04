@@ -20,7 +20,7 @@ Important artifact note:
 - The top-level `models/` and `reports/` files still describe an older demo fallback run: `models/metadata.json` has `using_demo_data: true` and `processed_rows: 18`.
 - The real-data artifact set exists under `models/models/` and `reports/reports/`: `models/models/metadata.json` has `using_demo_data: false`, `processed_rows: 1124604`, with 759356 Cars.com rows and 365248 Craigslist rows.
 - The top-level `data/processed/project_listings.csv` currently contains the 18-row demo dataset.
-- The `screenshots/` folder currently contains placeholder notes only, not real app screenshots.
+- The `screenshots/` folder should contain final app screenshots before submission.
 - Student name is Robert Obertol.
 - GitHub repository: `https://github.com/Obirobi99/used-car-listing-advisor`.
 - Required GitHub collaborators (`jasminh`, `bkuehnis`) still need to be added in the GitHub repository settings before final submission.
@@ -157,11 +157,11 @@ The repository includes `colab_used_car_advisor.ipynb`. Open it in Colab after u
 
 The notebook follows the same data rule as the scripts: it does not download Kaggle data automatically.
 
-## Hugging Face Spaces Deployment
+## Server Deployment
 
 Deployment URL: `robertobertol.com`.
 
-To deploy after training, upload these files/folders to a Gradio Space:
+To deploy after training, upload or pull these files/folders to the server:
 
 - `app.py`
 - `requirements.txt`
@@ -170,7 +170,7 @@ To deploy after training, upload these files/folders to a Gradio Space:
 - `documentation.md`
 - `README.md`
 
-The Space should use saved model files. It should not train or download datasets on Hugging Face Spaces.
+The server should use saved model files. It should not train or download datasets during normal web inference.
 
 ## Example User Flow
 
