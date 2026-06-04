@@ -20,7 +20,7 @@ Important artifact note:
 - The top-level `models/` and `reports/` files still describe an older demo fallback run: `models/metadata.json` has `using_demo_data: true` and `processed_rows: 18`.
 - The real-data artifact set exists under `models/models/` and `reports/reports/`: `models/models/metadata.json` has `using_demo_data: false`, `processed_rows: 1124604`, with 759356 Cars.com rows and 365248 Craigslist rows.
 - The top-level `data/processed/project_listings.csv` currently contains the 18-row demo dataset.
-- The `screenshots/` folder should contain final app screenshots before submission.
+- The `screenshots/` folder contains final app screenshots for input fields, processing state, output results, and example listings.
 - Student name is Robert Obertol.
 - GitHub repository: `https://github.com/Obirobi99/used-car-listing-advisor`.
 - Required GitHub collaborators (`jasminh`, `bkuehnis`) still need to be added in the GitHub repository settings before final submission.
@@ -201,7 +201,7 @@ The advisor should support, not replace, human judgment. It may reflect biases i
 - [x] GitHub repository created and pushed.
 - [x] Add deployment URL.
 - [ ] Add required GitHub collaborators (`jasminh`, `bkuehnis`).
-- [ ] Add real screenshots.
+- [x] Add real screenshots.
 - [x] Implement ML Numeric Data block.
 - [x] Implement NLP block.
 - [x] Keep Computer Vision out of scope.

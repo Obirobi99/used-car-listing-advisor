@@ -195,7 +195,7 @@ Evidence hint: Include sample outputs and observed failure cases.
 
 - Deployment URL: https://robertobertol.com
 - Main user flow: The user enters vehicle fields and a seller description in the Gradio app. The app predicts fair price, extracts NLP risk signals, calculates a recommended offer range, and returns a buyer-friendly recommendation.
-- Screenshot or short demo: Screenshots will be added in the `screenshots/` folder before final submission. Current placeholder files are `screenshots/placeholder_input.md` and `screenshots/placeholder_output.md`.
+- Screenshot or short demo: The `screenshots/` folder contains `input_fields.png`, `processing_state.png`, `output_results.png`, and `examples_list.png`.
 
 Guidance hint: Deployment must be usable.
 Evidence hint: Add screenshots or short demo references.
