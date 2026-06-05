@@ -35,7 +35,7 @@ Reference to multiple lines in `train.py`, lines 15-38:
 - [x] At least 2 blocks selected
 - [x] Multiple and different data sources used
 - [x] Deployment URL provided
-- [ ] Required GitHub users added to repository (`jasminh`, `bkuehnis`)
+- [x] Required GitHub users added to repository (`jasminh`, `bkuehnis`)
 
 ## Selected AI Blocks
 
